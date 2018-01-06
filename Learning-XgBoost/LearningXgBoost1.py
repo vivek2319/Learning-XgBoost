@@ -26,17 +26,12 @@ seed = 7
 test_size = 0.33
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,Y)
 
-# In[10]:
-
 model = xgboost.XGBClassifier()
 model.fit(X_train, y_train)
 
 # make predictions for test data
 y_pred = model.predict(X_test)
 predictions = [round(value) for value in y_pred]
-
-
-# In[12]:
 
 # evaluate predictions
 accuracy = accuracy_score(y_test, predictions)
